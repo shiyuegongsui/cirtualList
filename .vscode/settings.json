@@ -1,0 +1,10 @@
+{
+    "liveSassCompile.settings.formats": [
+      {
+        "format": "expanded",
+        "extensionName": ".wxss",
+        "savePath": null
+      }
+    ],
+    "liveSassCompile.settings.generateMap": false  // 去掉map文件
+  }
