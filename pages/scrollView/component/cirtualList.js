@@ -34,7 +34,7 @@ Component({
       let { scrollTop } = e.detail;
 
       let index = this.data.heightArr.findIndex((e) => {
-        return scrollTop >= e.begin && scrollTop < e.end
+          return scrollTop >= e.begin && scrollTop < e.end
       })
       if (this.data.index !== index && index !== -1) {
         this.setData({
