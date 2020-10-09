@@ -1,0 +1,7 @@
+    
+
+    <view class="cirtual-list" data-index="{{item.index}}">
+         <view class="cirtual-item" wx:for="{{item.list}}"  wx:key="index">
+            {{index}}_{{item}}
+         </view>
+    </view>

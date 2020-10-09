@@ -1,0 +1,8 @@
+
+<view class="virtual-container">
+   <view class="virtual-header" style="height:{{headerHeight}}px"></view>
+
+    <cirtual-list  item="{{item}}" wx:for="{{list}}" data-index="{{item.index}}" wx:key="index"  bind:attached="itemAttached"></cirtual-list>
+
+   <view class="virtual-footer" style="height:{{footerHeight}}px"></view>
+</view>

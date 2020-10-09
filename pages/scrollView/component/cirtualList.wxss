@@ -1,0 +1,5 @@
+/* pages/scrollView/component/cirtualList.wxss */
+
+.cirtual-item{
+    height: 100px;
+}

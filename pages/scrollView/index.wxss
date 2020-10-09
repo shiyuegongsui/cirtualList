@@ -1,0 +1,8 @@
+/* pages/scrollView/index.wxss */
+page{
+    height: 100%;
+}
+.virtual-container{
+
+    height: 100%;
+}

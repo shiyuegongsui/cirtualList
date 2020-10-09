@@ -1,0 +1,8 @@
+<scroll-view scroll-y="{{true}}" style="height:100%;overflow-y: auto;" enhanced="{{true}}" bindscroll="scroll" lower-threshold="{{300}}" scroll-with-animation="{{true}}" bindscrolltolower="onReachBottom">
+
+    <view class="virtual-header" style="height:{{headerHeight}}px"></view>
+    <view class="cirtual-list" wx:for="{{list}}" data-index="{{item.index}}" wx:key="index">
+        <view class="cirtual-item" wx:for="{{item.list}}"  wx:key="index">{{item}}</view>
+    </view>
+    <view class="virtual-footer" style="height:{{footerHeight}}px"></view>
+</scroll-view>
