@@ -39,8 +39,8 @@ Component({
       if (this.data.index !== index && index !== -1) {
         this.setData({
           index
-        },()=>{
-          this.calcList();
+        }, () => {
+            this.calcList();
         });
       }
     },
@@ -59,8 +59,9 @@ Component({
       })
       this.setData({
         baseList
+      }, () => {
+        this.calcList();
       })
-      this.calcList();
     },
     //重新计算list和头尾高度
     calcList() {
@@ -80,33 +81,30 @@ Component({
           list.push(e);
         }
       })
-
       this.setData({
         headerHeight,
         footerHeight,
         list
-      })
-      //计算高度
-      const query = this.createSelectorQuery()
-      query.selectAll('.cirtual-list').boundingClientRect()
-      query.selectViewport().scrollOffset()
-      query.exec(function (res) {
-        res[0].forEach((e) => {
-          let { index } = e.dataset;
-          let begin = heightArr[index - 1] ? heightArr[index - 1].begin + e.height : 0
-          heightArr[index] = {
-            height: e.height,
-            begin,
-            end: begin + e.height
-          }
+      }, () => {
+        //计算高度
+        const query = this.createSelectorQuery()
+        query.selectAll('.cirtual-list').boundingClientRect()
+        query.selectViewport().scrollOffset()
+        query.exec(function (res) {
+          res[0].forEach((e) => {
+            let { index } = e.dataset;
+            let begin = heightArr[index - 1] ? heightArr[index - 1].begin + e.height : 0
+            heightArr[index] = {
+              height: e.height,
+              begin,
+              end: begin + e.height
+            }
+          })
+          that.setData({
+            heightArr
+          })
         })
-
-        that.setData({
-          heightArr
-        })
-
       })
-
     }
   }
 })
