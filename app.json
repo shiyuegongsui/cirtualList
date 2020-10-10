@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/main/index",
     "pages/scrollView/index",
     "pages/index/index",
     "pages/logs/logs"

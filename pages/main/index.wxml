@@ -1,0 +1,108 @@
+<view class="cirtual-list">
+    <view style="min-height:{{minHeight}}px">
+        <view class="virtual-header" style="height:{{headerHeight}}px;" data-Index="{{index}}"></view>
+        <view class="cirtual-list trands-list" wx:for="{{list}}" data-index="{{item.index}}">
+            <view class="cirtual-item trends-item" wx:for="{{item.list}}" wx:for-index="index" wx:key="index">
+                <view class="store-logo">
+                    <image class="image-logo border-all" src="{{item.user.headUrl}}" />
+                </view>
+                <view class="dz-flexitem-1">
+                    <view class="dz-flex-title">
+                        <view class="dz-flexitem-1">
+                            <view class="store-name" wx:if="{{item.user.nickName}}">
+                                {{item.user.name}}
+                                <block wx:if="{{item.user.nickName}}">
+                                    ({{item.user.nickName}})
+                                </block>
+                            </view>
+                            <view class="store-name" wx:else>{{item.user.name}}</view>
+                            <view class="trends-time">{{item.releaseTime}}</view>
+                        </view>
+                        <product-from goodsInfo="{{item}}"></product-from>
+                        <view class="trends-type" wx:if="{{item.browsePermissions==1}}">
+                            <i class="iconfont iconsimi"></i>
+                            私密
+                        </view>
+                    </view>
+                    <view class="{{item.collapse ? 'offer-title' : 'offer-titlean'}}" wx:if="{{item.userId!=0}}" selectable="true">
+                        <view class="offer-price" wx:if="{{item.price}}">
+                            <block wx:if="{{item.minPrice==item.maxPrice}}">
+                                <span class="price-unit">¥</span>
+                                <span>{{item.minPrice}}</span>
+                            </block>
+                            <block wx:else>
+                                <span class="price-unit">¥</span>
+                                <span>{{item.minPrice}}~{{item.maxPrice}}</span>
+                            </block>
+                        </view>
+                        <block wx:if="{{item.textEnum==1}}">
+                            <text>{{item.textSub}}</text>
+                        </block>
+                        <block wx:else>
+                            <text>{{item.text}}</text>
+                        </block>
+                    </view>
+                    <view class="offer-title-true" wx:else>
+                        <text wx:if="{{item.textEnum==1}}">{{item.textSub}}</text>
+                        <text wx:else>{{item.text}}</text>
+                    </view>
+                    <view class="an-title" catchtap="anTitle" data-item="{{item}}" data-index="{{index}}" wx:if="{{item.textEnum!==0}}">
+                        {{item.textEnum==1 ? '全文' : '收起'}}
+                    </view>
+                    <view class="trends-image trends-image-{{item.images.length}} trends-userId-{{item.userId}}">
+                        <view class="image-item" wx:for="{{item.images}}" wx:for-index="imagesIndex" data-index="{{imagesIndex}}" data-list="{{item}}" data-imagesIndex="{{index}}" wx:for-item="image" wx:key="imagesIndex" catchtap="previewImage" wx:if="{{imagesIndex<9}}">
+                            <image lazy-load="{{true}}" src="{{image}}" />
+                        </view>
+                        <view class="subsequent-image" wx:if="{{item.images.length > 9}}" bindtap="itemClick" data-index="{{index}}">
+                            +{{item.images.length - 9}}
+                        </view>
+                    </view>
+                    <view class="dz-flex-center trands-footer"></view>
+                    <view class="trands-attribute">
+                        <view class="offer-attribye">
+                            <view class="commodity-attribute" data-index="{{index}}" catchtap="changeStyle" wx:if="{{item.sku != '[]' || item.productNumber != ''}}">
+                                <block wx:if="{{item.attribute}}">
+                                    <i class="iconfont iconxiala"></i>
+                                </block>
+                                <block wx:else>
+                                    <i class="iconfont iconxiangyou"></i>
+                                </block>
+                                商品属性
+                            </view>
+                        </view>
+                        <view class="been-archived">
+                            {{(item.forward && !item.mine)?'已转存至自己的相册':''}}
+                        </view>
+                    </view>
+                    <!-- 商品属性详情 -->
+                    <view class="attribute-details" wx:if="{{item.attribute}}">
+                        <view class="attribute-two">
+                            <view wx:if="{{item.productNumber != ''}}" class="attribute-flexaglin-center">
+                                <view class="attribute-title">货号：</view>
+                                {{item.productNumber}}
+                            </view>
+                            <view class="attribute-flexaglin-center" wx:if="{{item.firstSku != ''}}">
+                                <view class="attribute-title">型号：</view>
+                                <view class="attribute-center">
+                                    <text class="border-all attribute-sku" wx:for="{{item.firstSku}}" wx:for-item="firstSku">
+                                        {{firstSku}}
+                                    </text>
+                                </view>
+                            </view>
+                            <view class="attribute-flexaglin-center" wx:if="{{item.sencondSku != ''}}">
+                                <view class="attribute-title">规格：</view>
+                                <view class="attribute-center">
+                                    <text class="border-all attribute-sku" wx:for="{{item.sencondSku}}" wx:for-item="sencondSku">
+                                        {{sencondSku}}
+                                    </text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="clear"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="virtual-footer" style="height:{{footerHeight}}px"></view>
+    </view>
+</view>

@@ -1,4 +1,8 @@
 //app.js
+
+import ajax from "./utils/ajax.js";
+wx.$ajax = ajax;
+
 App({
   onLaunch: function () {
     // 展示本地存储能力

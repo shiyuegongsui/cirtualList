@@ -1,0 +1,302 @@
+/* pages/scrollView/component/cirtualList.wxss */
+
+/* .cirtual-item{
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+    border-bottom: 1rpx solid #666;
+} */
+
+.trends-box {
+    padding-left: 20rpx;
+  }
+  
+  .trends-box .search-atlas {
+    margin-top: 35rpx;
+    padding: 0 20rpx;
+  }
+  
+  .trands-list .trends-item {
+    padding: 30rpx 24rpx 30rpx 0;
+  }
+  
+  .trands-list .trends-item:last-child::before {
+    border-color: transparent;
+  }
+  
+  .trands-list .dz-flex-title {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20rpx;
+  }
+  
+  .trands-list .store-logo {
+    height: 75rpx;
+    width: 75rpx;
+    margin-right: 20rpx;
+  }
+  
+  .trands-list .image-logo {
+    height: 75rpx;
+    width: 75rpx;
+    border-radius: 50%;
+  }
+  
+  .trands-list .store-name {
+    font-size: 30rpx;
+    color: #333;
+    font-weight: bold;
+    padding-right: 10rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .trands-list .offer-price {
+    display: inline-block;
+    font-weight: bold;
+    padding: 6rpx 14rpx;
+    font-size: 26rpx;
+    color: #333;
+    background: #f0f0ff;
+    border-radius: 10rpx;
+  }
+  
+  .trands-list .price-unit {
+    font-size: 20rpx;
+  }
+  
+  .trands-list .offer-title {
+    font-size: 26rpx;
+    color: #333;
+    word-break: break-all;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+  }
+  
+  .trands-list .offer-titlean {
+    font-size: 26rpx;
+    color: #333;
+    word-break: break-all;
+  }
+  
+  .trands-list .an-title {
+    color: #7c75da;
+    font-size: 26rpx;
+    padding: 20rpx 0;
+  }
+  
+  .trands-list .offer-title-true {
+    font-size: 26rpx;
+    color: #333;
+    word-break: break-all;
+  }
+  
+  .trands-list .trands-footer {
+    padding-top: 10rpx;
+  }
+  
+  .trands-list .trends-time {
+    padding-top: 2rpx;
+    font-size: 22rpx;
+    color: #999;
+  }
+  
+  .trands-list .trends-type {
+    padding-top: 5rpx;
+    font-size: 24rpx;
+    color: #999;
+  }
+  
+  .trands-list .trends-type .iconfont {
+    font-size: 24rpx;
+    color: #999;
+    margin-left: 30rpx;
+  }
+  
+  .trands-list .trends-source {
+    font-size: 22rpx;
+    color: #2793ff;
+  }
+  
+  .trands-list .trends-source .iconfont {
+    color: #2793ff;
+    font-size: 22rpx;
+  }
+  
+  .trends-image {
+    overflow: hidden;
+    margin-left: -12rpx;
+    position: relative;
+    padding-top: 10rpx;
+  }
+  
+  .trends-image image {
+    float: left;
+    width: 196rpx;
+    height: 196rpx;
+    margin-left: 12rpx;
+    margin-bottom: 12rpx;
+  }
+  
+  .trends-image.trends-image-1 image {
+    width: 360rpx;
+    height: 360rpx;
+  }
+  
+  .trends-image.trends-image-1.trends-userId-0 image {
+    width: 615rpx;
+    height: 615rpx;
+  }
+  
+  .trends-image.trends-image-2 image {
+    width: 300rpx;
+    height: 300rpx;
+  }
+  
+  .trends-image.trends-image-4 image {
+    width: 210rpx;
+    height: 210rpx;
+  }
+  
+  .trends-image .subsequent-image {
+    position: absolute;
+    bottom: 12rpx;
+    right: 0;
+    width: 196rpx;
+    height: 196rpx;
+    text-align: center;
+    line-height: 196rpx;
+    color: #fff;
+    font-size: 50rpx;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .attribute-details {
+    padding-top: 15rpx;
+    color: #999;
+    font-size: 24rpx;
+  }
+  
+  .attribute-details .attribute-flexaglin-center {
+    display: flex;
+    padding-top: 15rpx;
+  }
+  
+  .attribute-details .attribute-title {
+    word-break: keep-all;
+    white-space: nowrap;
+    padding-top: 10rpx;
+  }
+  
+  .attribute-details .attribute-two {
+    color: #999;
+    line-height: 20rpx;
+    padding-left: 20rpx;
+  }
+  
+  .attribute-details .attribute-sku {
+    float: left;
+    padding: 10rpx 20rpx;
+    margin: 0 0 10rpx 10rpx;
+  }
+  
+  .attribute-details .border-all::after {
+    border-radius: 10rpx;
+  }
+  
+  .trands-attribute {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .trands-attribute .commodity-attribute {
+    font-size: 24rpx;
+    color: #999;
+    margin-right: 35rpx;
+  }
+  
+  .trands-attribute .iconfont {
+    font-size: 20rpx;
+    color: #999;
+  }
+  
+  .trands-attribute .been-archived {
+    color: #999;
+    font-size: 22rpx;
+  }
+  
+  button::after {
+    border: none !important;
+  }
+  
+  .trands-btn {
+    padding-top: 20rpx;
+    position: relative;
+    font-size: 27rpx;
+    color: #7c75da;
+  }
+  
+  .trands-btn .iconxiazai {
+    font-size: 30rpx;
+    color: #999;
+  }
+  
+  .trands-btn .dynamic-editor {
+    position: absolute;
+    left: 100rpx;
+    width: 110rpx;
+    text-align: center;
+  }
+  
+  .trands-btn .dynamic-buy {
+    position: absolute;
+    left: 220rpx;
+    width: 110rpx;
+    text-align: center;
+  }
+  
+  .trands-btn .border::after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    content: "";
+    width: 1rpx;
+    height: 15rpx;
+    background: #ededed;
+    transform: translateY(-50%) scaleX(0.5);
+  }
+  
+  .demand {
+    position: relative;
+    width: 612rpx;
+    height: 365rpx;
+  }
+  
+  .demand.auth.auth::after {
+    content: "";
+    position: absolute;
+    width: 110rpx;
+    height: 110rpx;
+    top: 50%;
+    left: 50%;
+    margin-top: -55rpx;
+    margin-left: -55rpx;
+    background: url("https://oss.fjdaze.com/zx-tools/common/suspended.png") center no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    bottom: 0rpx;
+    right: 0rpx;
+  }
+  
+  .video-demand {
+    width: 612rpx;
+    height: 365rpx;
+  }
+  
