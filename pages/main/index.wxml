@@ -1,8 +1,8 @@
 <view class="cirtual-list">
     <view style="min-height:{{minHeight}}px">
         <view class="virtual-header" style="height:{{headerHeight}}px;" data-Index="{{index}}"></view>
-        <view class="cirtual-list trands-list" wx:for="{{list}}" data-index="{{item.index}}">
-            <view class="cirtual-item trends-item" wx:for="{{item.list}}" wx:for-index="index" wx:key="index">
+        <view class="cirtual-list trands-list" wx:for="{{list}}" data-index="{{item.index}}" wx:key="index">
+            <view class="cirtual-item trends-item" wx:for="{{item.list}}" wx:for-index="index" wx:key="id">
                 <view class="store-logo">
                     <image class="image-logo border-all" src="{{item.user.headUrl}}" />
                 </view>
