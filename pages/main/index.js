@@ -1,13 +1,11 @@
 // pages/main/index.js
 let baseList = [];
-let timer = null;
 Page({
   data: {
-    minHeight:0,
+    minHeight: 0,
     headerHeight: 0,
     footerHeight: 0,
     list: [],
-    baseList: [],
     index: 0,
     heightArr: [],
     query: {
@@ -23,19 +21,6 @@ Page({
   },
   //获取列表
   getList() {
-    // let { baseList } = this.data;
-    // let nowList = [];
-    // for (var i = 0; i < 20; i++) {
-    //   nowList.push(i);
-    // }
-    // baseList.push({
-    //   list: nowList
-    // })
-    // this.setData({
-    //   baseList
-    // }, () => {
-    //   this.calcList();
-    // })
 
     let { query } = this.data;
     let nowList = [];
@@ -66,70 +51,52 @@ Page({
   },
   //重新计算list和头尾高度
   calcList() {
-
-    timer && clearTimeout(timer);
-
-    timer = setTimeout(() => {
-      let that = this;
-      let { index, heightArr } = this.data;
-      let headerHeight = 0;
-      let footerHeight = 0;
-      let list = [];
-      baseList.forEach((e, i) => {
-        if (i < (index - 1) && index >= 1) {
-          heightArr[i] && (headerHeight += heightArr[i].height);
-        } else if (i > (index + 1) && (index + 1) <= baseList.length) {
-          heightArr[i] && (footerHeight += heightArr[i].height);
-        } else {
-          e.index = i;
-          list.push(e);
-        }
-      })
-      console.log(heightArr);
-      this.setData({
-        headerHeight,
-        footerHeight
-      })
-      this.setData({
-        list
-      }, () => {
-        //计算高度
-        const query = this.createSelectorQuery()
-        query.selectAll('.cirtual-list').boundingClientRect()
-        query.selectViewport().scrollOffset()
-        query.exec(function (res) {
-          res[0].forEach((e) => {
-            let { index } = e.dataset;
-            let begin = heightArr[index - 1] ? heightArr[index - 1].begin + heightArr[index - 1].height : 0
-            if (index == undefined) {
-              return;
-            }
-            heightArr[index] = {
-              height: e.height,
-              begin,
-              end: begin + e.height
-            }
-          })
-
-          let minHeight= heightArr.reduce((value,e)=>{
-            return value+=e.height
-          },0)
-          that.setData({
-            heightArr,
-            minHeight
-          })
+    let that = this;
+    let { index, heightArr } = this.data;
+    let headerHeight = 0;
+    let footerHeight = 0;
+    let list = [];
+    baseList.forEach((e, i) => {
+      if (i < (index - 1) && index >= 1) {
+        heightArr[i] && (headerHeight += heightArr[i].height);
+      } else if (i > (index + 1) && (index + 1) <= baseList.length) {
+        heightArr[i] && (footerHeight += heightArr[i].height);
+      } else {
+        e.index = i;
+        list.push(e);
+      }
+    })
+    this.setData({
+      headerHeight,
+      footerHeight,
+      list
+    }, () => {
+      //计算高度
+      const query = this.createSelectorQuery()
+      query.selectAll('.trands-list').boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec(function (res) {
+        res[0].forEach((e) => {
+          let { index } = e.dataset;
+          let begin = heightArr[index - 1] ? heightArr[index - 1].begin + heightArr[index - 1].height : 0
+          if (index == undefined) {
+            return;
+          }
+          heightArr[index] = {
+            height: e.height,
+            begin,
+            end: begin + e.height
+          }
+        })
+        that.setData({
+          heightArr
         })
       })
-
-    }, 400);
+    })
   },
 
   onPageScroll(e) {
-
-
     let scrollTop = e.scrollTop;
-
-    console.log(scrollTop);
     let index = this.data.heightArr.findIndex((e) => {
       return scrollTop >= e.begin && scrollTop < e.end
     });
@@ -140,7 +107,6 @@ Page({
         this.calcList();
       });
     }
-
   },
   onReachBottom() {
     this.getList();
